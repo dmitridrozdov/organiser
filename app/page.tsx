@@ -123,7 +123,9 @@ function Organiser({
           canCreatePrivate={canCreatePrivate}
           initialStart={newTaskAt}
           onClose={() => setNewTaskAt(null)}
-          onCreate={(input) => createTask({ token, ...input })}
+          onCreate={async (input) => {
+            await createTask({ token, ...input });
+          }}
         />
       )}
 
