@@ -237,7 +237,9 @@ export function TaskDetailPanel({
           <CommentThread
             comments={comments ?? []}
             currentUserId={currentUserId}
-            onAdd={(body) => addComment({ token, taskId: task._id, body })}
+            onAdd={async (body) => {
+              await addComment({ token, taskId: task._id, body });
+            }}
             onDelete={(commentId) => removeComment({ token, commentId })}
           />
         </div>
